@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10 1">Start</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <ListBox ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding [0]}" Width="100" />
+                        <TextBlock Text="{Binding [1]}" Width="100" />
+                        <TextBlock Text="{Binding [2]}" Width="100" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+
+
+        <!--<DataGrid ItemsSource="{Binding}" AutoGenerateColumns="True" ></DataGrid>-->
+        
+        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10 1" Click="Button_Click">Start</Button>
     </Grid>
 </Window>
